@@ -53,7 +53,78 @@ The script will generate scatter plots that show user engagement based on total 
 - K-Means Clustering (for segmentation)
 - MySQL (as the data warehouse)
 
+## Roadmap: Intent-Based User Segmentation
+
+| **Timeline**     | **Goals**                                                                                               | **Features**                                                                                                                                                        |
+|------------------|--------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Current State**| - Segment users based on clicks, search queries, and time spent.                                         | - K-Means clustering with 3 segments: Low, Moderate, Highly Engaged.<br>- Visualizations of user segmentation.<br>- SQL and Python used for data processing.         |
+| **3-Month**      | - Introduce real-time capabilities and more granular segmentation.                                       | - **Real-time data ingestion** using tools like **Kafka**.<br>- Increase segments from 3 to 5-7.<br>- Incorporate more data sources (e.g., video engagement, social media).<br>- Experiment with new clustering models.<br>- Start **A/B testing** segment performance. |
+| **6-Month**      | - Scale platform, add predictive models, and cross-device tracking.                                      | - Add **predictive analytics** (XGBoost, Random Forest) to forecast user behavior.<br>- Implement **cross-device identity matching** with CDPs like **Segment**.<br>- Automated feedback loops for dynamic segment adjustments.<br>- Customize segmentation models for specific industries (e-commerce, media).<br>- **Multi-channel support** (email, SMS, push notifications). |
+| **1-Year**       | - Fully scalable hybrid segmentation platform, RTB integration, advanced AI models.                     | - **Hybrid segmentation** combining ID-based and real-time approaches.<br>- Integrate with **Real-Time Bidding (RTB)** systems.<br>- Implement deep learning models (LSTM) for predicting evolving user intent.<br>- Dynamic user profiles tracking long-term and short-term behaviors.<br>- Monetize high-value segments via dynamic pricing.<br>- Optimize for **global expansion** with multi-language support. |
+
+
+
 ---
+
+### **Current State of the Project**:
+
+The **Intent-Based User Segmentation** project currently segments users into three engagement categories—**Low Engagement**, **Moderate Engagement**, and **Highly Engaged**—based on user interaction data, including **total clicks**, **search queries**, and **time spent on articles and clicks**. A clustering algorithm (K-Means) was applied to assign users to these segments, and the results are visualized using scatter plots to show distinct user segments.
+
+#### **Current Features**:
+- User interaction data (clickstream, search queries, article views) is aggregated from the database.
+- Machine learning (K-Means clustering) is applied to create user segments.
+- Visualizations present the engagement levels of users, allowing AdTech strategies to be tailored accordingly.
+- SQL and Python are used for data aggregation, feature engineering, and model deployment.
+
+---
+
+### **3-Month Milestone**:
+
+#### **Goal**: Introduce more granular segmentation and enhanced real-time capabilities.
+
+- **Real-Time Data Ingestion**: Move towards real-time data processing, using event-driven tools like **Apache Kafka** or **Amazon Kinesis** to process clickstream and engagement data as it happens. 
+- **Granular Segments**: Increase the number of segments beyond the current three (e.g., 5-7 segments) for more nuanced user targeting.
+- **Add More Data Sources**: Integrate additional sources of user behavior data, such as video engagement, app usage, or social media interactions, to create a more holistic view of user intent.
+- **Improve Model Accuracy**: Test alternative clustering models (e.g., **DBSCAN**, **Agglomerative Clustering**) to improve segmentation accuracy.
+- **A/B Testing**: Begin experimenting with the performance of various segments, running A/B tests to compare the effectiveness of different ad strategies.
+
+---
+
+### **6-Month Milestone**:
+
+#### **Goal**: Scale the platform and introduce predictive modeling.
+
+- **Predictive Modeling**: Add **predictive analytics** to forecast future user behavior based on historical data, using machine learning models such as **XGBoost** or **Random Forest**. Predict the likelihood of a user becoming highly engaged or churning.
+- **Cross-Device Identity Matching**: Implement **cross-device tracking** (using CDPs like **Segment** or **Tealium**) to ensure users are recognized across desktop, mobile, and tablet devices for better segmentation.
+- **Automated Feedback Loops**: Automate the feedback loops to ensure that segment definitions dynamically adjust based on changing user behaviors.
+- **Customization by Industry**: Customize segmentation models based on industry needs (e.g., e-commerce, media, financial services), offering industry-specific intent signals.
+- **Multi-Channel Support**: Expand to support segmentation across **email**, **SMS**, and **push notifications**, integrating engagement data from these channels.
+
+---
+
+### **1-Year Milestone**:
+
+#### **Goal**: Build out a fully scalable, real-time intent-based segmentation platform.
+
+- **Full Integration with D/Cipher-Like Systems**: Build a hybrid segmentation system that combines both **ID-based** and **real-time targeting** approaches, fully integrating with a D/Cipher-like **Intent Targeting** tool.
+- **Real-Time Bidding (RTB) Integration**: Integrate with **RTB (Real-Time Bidding)** systems to allow advertisers to bid on high-intent users in real-time, increasing the platform's ad revenue potential.
+- **Advanced AI Models**: Incorporate deep learning models (e.g., **LSTM** for sequence prediction) to identify evolving user intent based on behavioral patterns across multiple sessions.
+- **User Segment Profiles**: Build dynamic user profiles that track behavioral shifts over time, combining **historical behavior** and **real-time adjustments** for precision targeting.
+- **Monetization of Segments**: Implement dynamic pricing for different user segments, allowing premium advertisers to bid more for the **Highly Engaged** users, while advertisers with broader goals target **Moderate Engagement** or **Low Engagement** users.
+- **Global Expansion**: Optimize for multi-language and global scalability, allowing for broader adoption across international markets.
+
+---
+
+### **New Features & Considerations**:
+
+- **Dynamic Segment Adjustment**: Implement dynamic recalibration of user segments based on both long-term trends and short-term fluctuations in behavior.
+- **User Intent Scoring**: Introduce a **real-time user intent score** that evolves during a session, allowing for more fluid adjustments to ad targeting strategies.
+- **Privacy-First Approach**: Focus on **privacy-preserving technologies** like **differential privacy** and **federated learning** to comply with GDPR/CCPA while maintaining high-quality data for segmentation.
+- **Deeper Cross-Channel Analytics**: Integrate deeper cross-channel analytics to understand how users move between social, email, and web channels, using those insights for better segmentation.
+
+---
+
+This roadmap outlines a comprehensive plan for growing the **Intent-Based User Segmentation** project into a fully scalable AdTech tool. It focuses on scaling both the technical infrastructure and machine learning models to enhance real-time capabilities, predictive analytics, and cross-channel tracking.
 
 ### Skills Deployed
 
