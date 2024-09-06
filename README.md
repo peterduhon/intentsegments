@@ -41,6 +41,11 @@ The script will generate scatter plots that show user engagement based on total 
 - **Moderate Engagement**
 - **Highly Engaged**
 
+
+<img width="849" alt="Screenshot 2024-09-05 at 9 27 37 PM" src="https://github.com/user-attachments/assets/a943aeea-32b5-47d6-be5f-9255cf7afa8f">
+
+  
+
 ## Technologies Used
 
 - Python (with Pandas, Matplotlib, and Scikit-learn)
