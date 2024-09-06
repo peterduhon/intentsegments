@@ -1,5 +1,3 @@
-# intentsegments
-
 # Intent-Based User Segmentation
 
 This repository contains a Python script that processes user interaction data (e.g., clickstream, search queries, and article views) and applies machine learning algorithms to segment users based on their intent.
