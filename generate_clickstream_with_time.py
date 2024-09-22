@@ -6,7 +6,7 @@ import mysql.connector
 connection = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="iP@d2814ii",  # Replace with your MySQL password
+    password="",  # Replace with your MySQL password
     database="intent_based_segmentation"
 )
 
