@@ -6,7 +6,7 @@ import mysql.connector
 connection = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="iP@d2814ii",  # Use your root password here
+    password="",  # Use your root password here
     database="intent_based_segmentation"
 )
 
