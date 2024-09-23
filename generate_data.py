@@ -1,14 +1,23 @@
 import mysql.connector
+import os
+import sys
+
+# Retrieve the database password from the environment variable
+db_password = os.getenv('DB_PASSWORD')
+if not db_password:
+    sys.exit("Error: The DB_PASSWORD environment variable is not set.")
+
 
 # Establish a connection to the database
 connection = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="iP@d2814ii",
+    password=db_password,
     database="intent_based_segmentation"
 )
 
 cursor = connection.cursor()
+
 
 # Insert aggregated data into user_activity_summary from all relevant sources
 cursor.execute("""

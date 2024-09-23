@@ -1,11 +1,28 @@
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
+import os
+import sys
+import urllib.parse
 import pandas as pd
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Debugging: Print the environment variable
+print(f"DB_PASSWORD from os.environ: {os.environ.get('DB_PASSWORD')}")
+
+db_password = os.getenv('DB_PASSWORD')
+if not db_password:
+    sys.exit("Error: The DB_PASSWORD environment variable is not set.")
+
+# URL-encode the password
+db_password_encoded = urllib.parse.quote_plus(db_password)
+
 # Create the SQLAlchemy engine
-engine = create_engine('mysql+mysqlconnector://root:iP%40d2814ii@localhost/intent_based_segmentation')
+engine = create_engine(f'mysql+mysqlconnector://root:{db_password_encoded}@localhost/intent_based_segmentation')
 
 # Updated query to fetch data from multiple sources
 query = """
