@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        #chatbox {
+            height: 300px;
+            overflow-y: scroll;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .user-message {
+            text-align: right;
+            color: #4CAF50;
+        }
+        .bot-message {
+            text-align: left;
+            color: #2196F3;
+        }
+        .input-area {
+            display: flex;
+            padding: 20px;
+        }
+        #user_input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        #send_button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #send_button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Segmentation Chatbot
+        </div>
+        <div id="chatbox"></div>
+        <div class="input-area">
+            <input type="text" id="user_input" placeholder="Ask about user segments...">
+            <button id="send_button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function addMessage(sender, message) {
+            var messageClass = sender === 'You' ? 'user-message' : 'bot-message';
+            $("#chatbox").append("<div class='message " + messageClass + "'><strong>" + sender + ":</strong> " + message + "</div>");
+            $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+        }
+
+        $("#send_button").click(function() {
+            var message = $("#user_input").val();
+            if (message.trim() != "") {
+                addMessage("You", message);
+                $.post("/ask", {message: message}, function(data) {
+                    addMessage("Chatbot", data.response);
+                });
+                $("#user_input").val("");
+            }
+        });
+
+        $("#user_input").keypress(function(e) {
+            if (e.which == 13) {
+                $("#send_button").click();
+            }
+        });
+    </script>
+</body>
+</html>

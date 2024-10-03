@@ -76,6 +76,18 @@ The **Intent-Based User Segmentation** project currently segments users into thr
 - Visualizations present the engagement levels of users, allowing AdTech strategies to be tailored accordingly.
 - SQL and Python are used for data aggregation, feature engineering, and model deployment.
 
+## Chatbot Interface
+
+This project now includes a simple chatbot that can provide insights about user segments. To use the chatbot:
+
+1. Ensure you have installed all requirements: `pip install -r requirements.txt`
+2. Run the chatbot script: `python chatbot.py`
+3. Ask questions about segments, such as:
+   - "Tell me about the segments"
+   - "What can you tell me about highly engaged users?"
+   - "How many users are in the low engagement segment?"
+
+The chatbot uses natural language processing to understand your questions and provides relevant information based on the segmentation results.
 ---
 
 ### **3-Month Milestone**:
