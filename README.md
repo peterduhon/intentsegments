@@ -78,6 +78,8 @@ The **Intent-Based User Segmentation** project currently segments users into thr
 
 ## Chatbot Interface
 
+![Segmentation Chatbot Interface](images/segmentchatbot.png)
+
 This project now includes a simple chatbot that can provide insights about user segments. To use the chatbot:
 
 1. Ensure you have installed all requirements: `pip install -r requirements.txt`
